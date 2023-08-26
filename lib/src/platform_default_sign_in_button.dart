@@ -1,10 +1,11 @@
 import 'package:locator_for_perception/locator_for_perception.dart';
-import 'package:types_for_perception/core_types.dart';
-import 'package:types_for_perception/state_types.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+import 'package:types_for_perception/beliefs.dart';
 
-class PlatformDefaultSignInButton<T extends AstroState>
+import 'sign_in_with_apple_procedure.dart';
+
+class PlatformDefaultSignInButton<T extends CoreBeliefs>
     extends StatelessWidget {
   const PlatformDefaultSignInButton({super.key});
 
@@ -12,6 +13,6 @@ class PlatformDefaultSignInButton<T extends AstroState>
   Widget build(BuildContext context) {
     return SignInWithAppleButton(
         onPressed: () =>
-            locate<MissionControl<T>>().launch(SignInWithApple<T>()));
+            locate<MissionControl<T>>().launch(SignInWithAppleProcedure<T>()));
   }
 }

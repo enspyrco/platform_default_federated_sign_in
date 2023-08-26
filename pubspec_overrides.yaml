@@ -1,19 +1,17 @@
 dependency_overrides:
-  locator_for_perception:
-    git: https://github.com/enspyrco/locator_for_perception
-  core_of_perception:
-    git: https://github.com/enspyrco/core_of_perception
-  types_for_perception:
-    git: https://github.com/enspyrco/types_for_perception
-  error_handling_for_perception:
-    git: https://github.com/enspyrco/error_handling_for_perception
-  enspyr_lints:
-    git: https://github.com/enspyrco/enspyr_lints
+# where are we? flutter/utils/perception/auth/<here>
+  # locator_for_perception:
+  #   path: ../../locator_for_perception
+  # core_of_perception:
+  #   path: ../../core_of_perception
+  # types_for_perception:
+  #   path: ../../types_for_perception
+  # error_handling_for_perception:
+  #   path: ../../error_handling_for_perception
 
-# where are we? flutter/utils/astro/auth/
-
-# dependency_overrides:
-#   locator_for_perception:
-#     path: ../../../dart/utils/locator_for_perception
-#   core_of_perception:
-#     path: ../../../flutter/utils/core_of_perception
+  # enspyr_lints:
+  #   path: ..
+  # types_for_auth:
+  #   path: ..
+  # json_utils:
+  #   path: ..

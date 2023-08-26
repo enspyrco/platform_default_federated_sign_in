@@ -1,12 +1,11 @@
-import 'package:types_for_perception/core_types.dart';
-import 'package:types_for_perception/json_types.dart';
-import 'package:types_for_perception/state_types.dart';
+import 'package:json_utils/json_utils.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart' as plugin;
+import 'package:types_for_perception/beliefs.dart';
 
 // import 'nonce.dart';
 
-class SignInWithApple<T extends AstroState> extends AwayMission<T> {
-  SignInWithApple();
+class SignInWithAppleProcedure<T extends CoreBeliefs> extends AwayMission<T> {
+  SignInWithAppleProcedure();
 
   /// From: `somewhere I can't remember now...`
   /// To prevent replay attacks with the credential returned from Apple, we
@@ -33,8 +32,8 @@ class SignInWithApple<T extends AstroState> extends AwayMission<T> {
     var token = credential.identityToken ??
         (throw 'The credential.identityToken variable was null');
 
-    missionControl
-        .land(SignInWithFirebaseWithAppleCredential<T>(idToken: token));
+    // missionControl
+    //     .land(SignInWithFirebaseWithAppleCredential<T>(idToken: token));
   }
 
   @override
