@@ -1,9 +1,9 @@
 import 'package:locator_for_perception/locator_for_perception.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
-import 'package:types_for_perception/beliefs.dart';
+import 'package:abstractions/beliefs.dart';
 
-import 'sign_in_with_apple_procedure.dart';
+import 'signing_in_with_apple.dart';
 
 class PlatformDefaultSignInButton<T extends CoreBeliefs>
     extends StatelessWidget {
@@ -13,6 +13,6 @@ class PlatformDefaultSignInButton<T extends CoreBeliefs>
   Widget build(BuildContext context) {
     return SignInWithAppleButton(
         onPressed: () =>
-            locate<MissionControl<T>>().launch(SignInWithAppleProcedure<T>()));
+            locate<BeliefSystem<T>>().consider(SigningInWithApple<T>()));
   }
 }
