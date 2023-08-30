@@ -20,7 +20,7 @@ class SigningInWithApple<T extends CoreBeliefs> extends Consideration<T> {
 
   // final nonce = sha256ofString(rawNonce);
   @override
-  Future<void> process(BeliefSystem<T> beliefSystem) async {
+  Future<void> consider(BeliefSystem<T> beliefSystem) async {
     final plugin.AuthorizationCredentialAppleID credential =
         await plugin.SignInWithApple.getAppleIDCredential(
       scopes: [
