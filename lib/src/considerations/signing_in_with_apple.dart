@@ -1,6 +1,8 @@
 import 'package:json_utils/json_utils.dart';
-import 'package:sign_in_with_apple/sign_in_with_apple.dart' as plugin;
 import 'package:abstractions/beliefs.dart';
+import 'package:locator_for_perception/locator_for_perception.dart';
+import 'package:percepts/percepts.dart';
+import 'package:platform_default_sign_in_for_perception/src/systems/sign_in_with_apple_system.dart';
 
 // import 'nonce.dart';
 
@@ -21,24 +23,14 @@ class SigningInWithApple<T extends CoreBeliefs> extends Consideration<T> {
   // final nonce = sha256ofString(rawNonce);
   @override
   Future<void> consider(BeliefSystem<T> beliefSystem) async {
-    final plugin.AuthorizationCredentialAppleID credential =
-        await plugin.SignInWithApple.getAppleIDCredential(
-      scopes: [
-        plugin.AppleIDAuthorizationScopes.email,
-        plugin.AppleIDAuthorizationScopes.fullName,
-      ],
-    );
+    var service = locate<SignInWithAppleSystem>();
 
-    var token = credential.identityToken ??
-        (throw 'The credential.identityToken variable was null');
+    String credential = await service.signIn();
 
-    print(token);
-
-    // beliefSystem
-    //     .conclude(SignInWithFirebaseWithAppleCredential<T>(idToken: token));
+    beliefSystem.conclude(IdentityUpdated<T>(newAppleCredential: credential));
   }
 
   @override
   JsonMap toJson() =>
-      {'name_': 'Sign In With Apple', 'state_': <String, dynamic>{}};
+      {'name_': 'SigningInWithApple', 'state_': <String, dynamic>{}};
 }

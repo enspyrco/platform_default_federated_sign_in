@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:abstractions/beliefs.dart';
 
-import 'signing_in_with_apple.dart';
+import '../considerations/signing_in_with_apple.dart';
 
 class PlatformDefaultSignInButton<T extends CoreBeliefs>
     extends StatelessWidget {
@@ -12,7 +12,9 @@ class PlatformDefaultSignInButton<T extends CoreBeliefs>
   @override
   Widget build(BuildContext context) {
     return SignInWithAppleButton(
-        onPressed: () =>
-            locate<BeliefSystem<T>>().consider(SigningInWithApple<T>()));
+      onPressed: () => locate<BeliefSystem<T>>().consider(
+        SigningInWithApple<T>(),
+      ),
+    );
   }
 }
