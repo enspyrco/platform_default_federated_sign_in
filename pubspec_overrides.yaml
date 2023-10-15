@@ -1,5 +1,5 @@
 dependency_overrides:
-# where are we? flutter/utils/perception/auth/<here>
+# where are we? flutter/utils/perception/identity/<here>
   locator_for_perception:
     path: ../../locator_for_perception
   percepts:
@@ -8,6 +8,14 @@ dependency_overrides:
     path: ../../abstractions
   error_correction_in_perception:
     path: ../../error_correction_in_perception
+  
+  apple_sign_in_for_perception:
+    path: ../apple_sign_in_for_perception
+  google_sign_in_for_perception:
+    path: ../google_sign_in_for_perception
+  
+  test_utils_for_perception:
+    path: ../../test_utils_for_perception
 
   # enspyr_lints:
   #   path: ..
