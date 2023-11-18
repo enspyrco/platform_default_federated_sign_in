@@ -8,6 +8,6 @@ class PlatformDefaultSignInButton<T extends CoreBeliefs>
 
   @override
   Widget build(BuildContext context) {
-    return const AppleSignInButton();
+    return AppleSignInButton<T>();
   }
 }
